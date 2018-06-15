@@ -6,6 +6,10 @@ Include: yum
 %help
 Abandon all hope, ye who enter here.
 
+%files
+    config.py
+    render.sh
+    
 %setup
 
 %environment
