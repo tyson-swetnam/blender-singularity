@@ -7,11 +7,11 @@ Include: yum
 Abandon all hope, ye who enter here.
 
 %files
-    config.py
-    render.sh
+    ~/blender-singularity/config.py
+    ~/blender-singularity/render.sh
     
 %setup
-
+    yum install wget
 %environment
 
 %post
