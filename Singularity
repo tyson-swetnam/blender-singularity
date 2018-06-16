@@ -7,12 +7,15 @@ Include: yum
 Abandon all hope, ye who enter here.
 
 %files
-    ~/blender-singularity/config.py
-    ~/blender-singularity/render.sh
+    config.py /opt
+    render.sh /opt
     
 %setup
-    yum install wget
+
 %environment
+    # Set GPU to be persistent, disable autoboost
+    nvidia-smi -pm 1
+    nvidia-smi --auto-boost-def
 
 %post
     
@@ -21,12 +24,9 @@ Abandon all hope, ye who enter here.
     yum install -y gcc kernel-devel-`uname -r`
 
     # Install latest NVIDIA Drivers
+    yum install wget
     wget http://us.download.nvidia.com/XFree86/Linux-x86_64/390.67/NVIDIA-Linux-x86_64-390.67.run
-    sudo /bin/bash ./NVIDIA-Linux-x86_64-390.67.run
-    
-    # Set GPU to be persistent, disable autoboost
-    nvidia-smi -pm 1
-    nvidia-smi --auto-boost-def
+    /bin/bash ./NVIDIA-Linux-x86_64-390.67.run
     
     # Install video driver dependencies
     yum -y install freetype freetype-devel libpng-devel
