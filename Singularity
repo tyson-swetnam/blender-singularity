@@ -29,15 +29,16 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 %environment
 
 %post
-    echo 'export PATH=$PATH:/snap/bin'>>$SINGULARITY_ENVIRONMENT
+    echo 'export PATH=$PATH:/snap/bin' >>$SINGULARITY_ENVIRONMENT
     echo "deb http://us.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
 
     apt-get update
     apt-get -y upgrade
-    apt-get -y install emacs vim nano \
+    apt-get install -y emacs vim nano \
     lshw lsb-release bash-completion \
-    kmod iputils-ping net-tools \
-    squashfuse fuse snapd make wget curl
+    kmod iputils-ping net-tools 
+    # apt install squashfuse
+    apt-get -y install fuse snapd make wget curl
  
     systemctl enable snapd
 
