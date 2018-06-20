@@ -4,7 +4,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
 %runscript
     exec echo "The runscript is the containers default runtime command!"
-
+    
 %setup
 
     # Thread about Snap install on Singularity: https://groups.google.com/a/lbl.gov/forum/#!topic/singularity/wGfm_nf-b2I
@@ -45,5 +45,6 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     wget https://sourceforge.net/projects/virtualgl/files/2.5.2/virtualgl_2.5.2_amd64.deb/download -O /tmp/virtualgl_2.5.2_amd64.deb
     apt-get -y install mesa-utils mesa-utils-extra x11-apps
     dpkg -i /tmp/virtualgl_2.5.2_amd64.deb
-
+    
+    # Install Blender & Meshlab
     apt-get install -y blender meshlab
