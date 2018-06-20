@@ -18,10 +18,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
     apt-get update
     apt-get -y upgrade
-    apt-get install -y emacs vim nano \
-    lshw lsb-release bash-completion \
-    kmod iputils-ping net-tools \ 
-    make wget curl
+    apt-get install -y vim nano lshw lsb-release bash-completion kmod iputils-ping net-tools wget
 
     wget https://sourceforge.net/projects/virtualgl/files/2.5.2/virtualgl_2.5.2_amd64.deb/download -O /tmp/virtualgl_2.5.2_amd64.deb
     apt-get -y install mesa-utils mesa-utils-extra x11-apps
