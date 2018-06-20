@@ -3,12 +3,15 @@ OSVersion: xenial
 MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
 %runscript
-    exec echo "The runscript is the containers default runtime command!"
+    exec export PATH=$PATH:/snap/bin
+    exec echo "The runscript is the containers default runtime command!" 
 
 %setup
 
     # Thread about Snap install on Singularity: https://groups.google.com/a/lbl.gov/forum/#!topic/singularity/wGfm_nf-b2I
     # presumes snap is already installed on my host system
+    # installs CloudCompare 
+    export PATH=$PATH:/snap/bin
     snap install cloudcompare
     snap refresh --edge cloudcompare
 
@@ -27,10 +30,11 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     exit 0
 
 %environment
-
+    export PATH=$PATH:/snap/bin
 %post
     echo "deb http://us.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
-
+    export PATH=$PATH:/snap/bin
+    
     apt-get update
     apt-get -y upgrade
     apt-get -y install emacs vim nano \
