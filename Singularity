@@ -26,10 +26,8 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
         fi
     exit 0
 
-%environment
-
 %post
-    echo 'export PATH=$PATH:/snap/bin' >>$SINGULARITY_ENVIRONMENT
+    echo "export PATH=$PATH:/snap/bin" >> $SINGULARITY_ENVIRONMENT
     echo "deb http://us.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
 
     apt-get update
