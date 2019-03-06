@@ -1,6 +1,5 @@
-Bootstrap: debootstrap
-OSVersion: xenial
-MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+Bootstrap: docker
+From: nvidia/opengl:1.1-glvnd-runtime-ubuntu16.04
 
 %runscript
     exec echo "Starting Blender"
